@@ -6,6 +6,7 @@ const app=express()
 const path=require("path")
 const mongoose=require("mongoose")
 const userController= require('./controllers/library.js')
+const  authContoller = require('./controllers/auth.js')
 
 
 const port = process.env.PORT ? process.env.PORT : '3000'
@@ -24,6 +25,8 @@ app.use(express.urlencoded({ extended: false }));
   app.get("/",(req,res)=>{
     res.render("index.ejs")
   })  
+
+  app.use('/',authContoller)
   
   app.use('/library',userController)
 

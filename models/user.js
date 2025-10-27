@@ -35,3 +35,6 @@ password: {
 },
 books: [bookSchema]
 })
+
+const User = mongoose.model("User", userSchema);
+module.exports=User
