@@ -1,0 +1,112 @@
+body {
+    background: linear-gradient(135deg, #f6f2e8, #c8b89e);
+    font-family: 'Georgia', serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 40px;
+    background-color: #c8dbb0;
+    border-bottom: 2px solid #a6b894;
+}
+
+header .logo {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #4a3f35;
+}
+
+nav a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: #4a3f35;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.main-container {
+    margin: 30px auto;
+    background-color: #c8dbb0;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 1200px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #4a3f35;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.search-sections {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 40px;
+}
+
+.search-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-box h3 {
+    margin-bottom: 10px;
+    color: #4a3f35;
+    font-style: italic;
+}
+
+.search-box input {
+    width: 280px;
+    padding: 8px;
+    border: 2px solid #8f7e68;
+    border-radius: 5px;
+    font-size: 0.95rem;
+}
+
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 25px;
+    justify-items: center;
+}
+
+.book-card {
+    background-color: #fdfaf5;
+    border: 1px solid #bda98a;
+    border-radius: 10px;
+    width: 160px;
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #4a3f35;
+    font-weight: bold;
+    padding: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #4a3f35;
+    font-size: 0.85rem;
+}

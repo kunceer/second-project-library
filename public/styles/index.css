@@ -1,0 +1,104 @@
+/* Reset osnovnih margina i fonta */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Georgia', serif;
+}
+
+/* Pozadina - topla knjiška paleta */
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #f6f2e8, #c8b89e);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Glavni naslov */
+h1 {
+    font-size: 3rem;
+    color: #4a3f35; /* tamno braon */
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+    margin-bottom: 40px;
+}
+
+/* Kontejner za formu */
+.container {
+    background: #fdfaf5;
+    border: 1px solid #d5c7b2;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 30px 40px;
+    width: 320px;
+}
+
+/* Naslov forme */
+.container h2 {
+    text-align: center;
+    color: #4a3f35;
+    margin-bottom: 20px;
+}
+
+/* Stilovi za formu */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-size: 0.9rem;
+    color: #5a4f45;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #c8b89e;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 1rem;
+}
+
+input:focus {
+    outline: none;
+    border-color: #8f7e68;
+    box-shadow: 0 0 5px rgba(143, 126, 104, 0.5);
+}
+
+/* Dugme */
+button {
+    width: 100%;
+    background-color: #8f7e68;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #75644e;
+}
+
+/* Tekst ispod forme */
+p {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #4a3f35;
+}
+
+a {
+    color: #5a7f68; /* maslinasto zelena */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}

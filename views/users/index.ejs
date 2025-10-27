@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="styles/library.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="logo">📚 My Library</div>
+        <nav>
+            <a href="/books">Books</a>
+            <a href="/addBooks">Add Books</a>
+            <a href="/logout">Sign out</a>
+        </nav>
+    </header>
+
+    <div class="main-container">
+        <h1>My Own Library</h1>
+
+        <div class="search-sections">
+            <div class="search-box">
+                <h3>TITLES</h3>
+                <input type="text" placeholder="Search by title, author, keyword or ISBN">
+            </div>
+
+            <div class="search-box">
+                <h3>AUTHORS</h3>
+                <input type="text" placeholder="Search by title, author, keyword or ISBN">
+            </div>
+        </div>
+
+        <div class="book-grid">
+            <% const books = ["Romeo and Julia", "Ana Karenjina", "Midlmarc", "Zlocin i kazna", "Dar", "Doživljaji Toma Sojera", "Mobi Dik", "Gospođa Bovari", "107 Dana", "Let them theory"]; %>
+            <% books.forEach(book => { %>
+                <div class="book-card"><%= book %></div>
+            <% }) %>
+           
+        </div>
+    </div>
+
+    <footer>
+        © <%= new Date().getFullYear() %> My Own Library
+    </footer>
+</body>
+</html>
