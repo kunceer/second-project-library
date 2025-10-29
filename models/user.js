@@ -4,7 +4,7 @@ const bookSchema=mongoose.Schema({
     title: {
         type: String,
         required: true,
-        unique: true
+        
     },
     author: {
         type: String,
@@ -17,7 +17,8 @@ const bookSchema=mongoose.Schema({
     myReviews: {
         type: String,
         required: true
-    }
+    },
+    image: { type: String }
 })
 const userSchema=mongoose.Schema({
 name:{

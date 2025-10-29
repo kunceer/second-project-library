@@ -1,0 +1,133 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Georgia', serif;
+}
+
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f6f2e8, #c8b89e);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 50px 20px;
+}
+
+
+h1 {
+    font-size: 3rem;
+    color: #4a3f35;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+    margin-bottom: 40px;
+}
+
+.book-container {
+    position: relative; 
+    background: #fdfaf5;
+    border: 1px solid #d5c7b2;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    border-radius: 12px;
+    padding: 30px 40px;
+    width: 400px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.book-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+
+.book-container h2 {
+    color: #4a3f35;
+    margin-bottom: 8px;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+
+.book-container h3 {
+    color: #75644e;
+    font-weight: normal;
+    margin-bottom: 20px;
+    text-align: center;
+    font-style: italic;
+}
+
+
+.book-container p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #5a4f45;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+
+.book-container strong {
+    color: #4a3f35;
+}
+
+
+.book-container a.button {
+    display: block;
+    background-color: #8f7e68;
+    color: #fff;
+    padding: 12px 0;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 20px;
+    transition: background 0.3s;
+    cursor: pointer;
+}
+
+.book-container a.button:hover {
+    background-color: #75644e;
+}
+
+
+.book-container .delete {
+    margin-top: 16px;
+    background-color: #e74c3c;
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+    transition: background 0.3s, transform 0.2s;
+    cursor: pointer;
+}
+
+.book-container a.delete:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+}
+
+
+@media (max-width: 500px) {
+    .book-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .book-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .book-container a.delete {
+        bottom: 10px;
+        right: 10px;
+        padding: 8px 14px;
+    }
+}

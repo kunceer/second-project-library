@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <link rel="stylesheet" href="styles/library.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="/styles/library.css"> <!-- vodi računa da koristiš apsolutnu putanju -->
+    <title>My Library</title>
 </head>
 <body>
     <header>
         <div class="logo">📚 My Library</div>
         <nav>
-            <a href="/books">Books</a>
-            <a href="/addBooks">Add Books</a>
+            <a href="/library/addBooks">Add Books</a>
             <a href="/logout">Sign out</a>
         </nav>
     </header>
@@ -22,26 +21,70 @@
         <div class="search-sections">
             <div class="search-box">
                 <h3>TITLES</h3>
-                <input type="text" placeholder="Search by title, author, keyword or ISBN">
+                <input type="text" placeholder="Search by title" id="titleSearch">
             </div>
 
             <div class="search-box">
                 <h3>AUTHORS</h3>
-                <input type="text" placeholder="Search by title, author, keyword or ISBN">
+                <input type="text" placeholder="Search by author" id="authorSearch">
             </div>
         </div>
 
+        <!-- GRID SA KNJIGAMA -->
         <div class="book-grid">
-            <% const books = ["Romeo and Julia", "Ana Karenjina", "Midlmarc", "Zlocin i kazna", "Dar", "Doživljaji Toma Sojera", "Mobi Dik", "Gospođa Bovari", "107 Dana", "Let them theory"]; %>
             <% books.forEach(book => { %>
-                <div class="book-card"><%= book %></div>
+                <div class="book-wrapper" 
+                     data-title="<%= book.title.toLowerCase() %>" 
+                     data-author="<%= (book.author || '').toLowerCase() %>">
+                    
+                    <div class="book-card" 
+                         style="background-image: url('<%= book.image %>'); 
+                                background-size: cover; 
+                                background-position: center; 
+                                background-repeat: no-repeat;">
+                    </div>
+                    
+                    <h3><%= book.title %></h3>
+                    <% if (book.author) { %>
+                      <p><%= book.author %></p>
+                    <% } %>
+                    <a href="/library/singleBook/<%= book._id %>">View details</a>
+                </div>
             <% }) %>
-           
         </div>
     </div>
 
     <footer>
         © <%= new Date().getFullYear() %> My Own Library
     </footer>
+
+    
+    <script>
+      const titleInput = document.getElementById('titleSearch');
+      const authorInput = document.getElementById('authorSearch');
+      const books = document.querySelectorAll('.book-wrapper');
+
+      function filterBooks() {
+        const titleValue = titleInput.value.toLowerCase();
+        const authorValue = authorInput.value.toLowerCase();
+
+        books.forEach(book => {
+          const title = book.getAttribute('data-title');
+          const author = book.getAttribute('data-author');
+
+          const matchesTitle = title.includes(titleValue);
+          const matchesAuthor = author.includes(authorValue);
+
+          if ((!titleValue || matchesTitle) && (!authorValue || matchesAuthor)) {
+            book.style.display = 'block';
+          } else {
+            book.style.display = 'none';
+          }
+        });
+      }
+
+      titleInput.addEventListener('input', filterBooks);
+      authorInput.addEventListener('input', filterBooks);
+    </script>
 </body>
 </html>

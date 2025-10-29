@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= book.title %> | My Own Library</title>
+    <link rel="stylesheet" href="/styles/singleBook.css">
+</head>
+<body>
+    <h1>Book Details</h1>
+
+    <div class="book-container">
+        <h2><%= book.title %></h2>
+        <h3>by <%= book.author %></h3>
+
+        <p><strong>Description:</strong> <%= book.description %></p>
+        <p><strong>My Review:</strong> <%= book.myReviews %></p>
+
+        <div class="buttons">
+            <div class="top-buttons">
+                <a href="/library/singleBook/<%=book._id%>/edit" class="button edit">Edit Book</a>
+                <a href="/library" class="button back">Back to Library</a>
+            </div>
+
+            <form action="/library/singleBook/<%= book._id %>?_method=DELETE" method="POST" class="delete-form">
+                <button type="submit" class="button delete">Delete Book</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
