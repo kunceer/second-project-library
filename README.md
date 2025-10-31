@@ -47,4 +47,4 @@ The idea behind *My Own Library* is to create a personal digital library where r
 - Implement a dark/light mode  
 
 ### 🚀 Live Demo
-👉 [My Own Library](https://your-app-link.com)
+👉 [My Own Library](https://my-own-library-1c899d4231ff.herokuapp.com/)
