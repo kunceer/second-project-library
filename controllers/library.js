@@ -49,7 +49,6 @@ router.post("/addBooks", async (req, res) => {
     }
 });
 
-// GET single book by ID
 router.get("/singleBook/:id", async (req, res) => {
     if (!req.session.user) {
         return res.redirect("/login");
@@ -57,7 +56,7 @@ router.get("/singleBook/:id", async (req, res) => {
 
     try {
         const user = await User.findById(req.session.user.id);
-        const book = user.books.id(req.params.id); // Mongoose subdocument ID
+        const book = user.books.id(req.params.id); 
         if (!book) {
             return res.send("Book not found");
         }
@@ -87,28 +86,25 @@ router.get('/singleBook/:id/edit', async (req, res) => {
 });
 router.put('/singleBook/:id', async (req, res) => {
     try {
-        // Pronađi korisnika koji je trenutno ulogovan
+        
         const user = await User.findById(req.session.user.id);
         if (!user) {
             return res.status(404).send('User not found');
         }
 
-        // Pronađi konkretnu knjigu unutar niza user.books
         const book = user.books.id(req.params.id);
         if (!book) {
             return res.status(404).send('Book not found');
         }
 
-        // Ažuriraj polja iz forme
         book.title = req.body.title;
         book.author = req.body.author;
         book.description = req.body.description;
         book.myReviews = req.body.myReviews;
 
-        // Sačuvaj izmene u bazi
+    
         await user.save();
 
-        // Preusmeri korisnika nazad na stranicu knjige
         res.redirect(`/library/singleBook/${book._id}`);
     } catch (err) {
         console.error('Error updating book:', err);
@@ -118,23 +114,23 @@ router.put('/singleBook/:id', async (req, res) => {
 
 router.delete('/singleBook/:id', async (req, res) => {
     try {
-        // Nađi ulogovanog korisnika
+        
         const user = await User.findById(req.session.user.id);
         if (!user) {
             return res.status(404).send('User not found');
         }
 
-        // Nađi knjigu po ID-u unutar niza user.books
+
         const book = user.books.id(req.params.id);
         if (!book) {
             return res.status(404).send('Book not found');
         }
 
-        // Obrisi knjigu iz niza
-        book.deleteOne(); // ili book.remove() za starije verzije Mongoose-a
+        
+        book.deleteOne(); 
         await user.save();
 
-        // Vrati korisnika na listu knjiga
+        
         res.redirect('/library');
     } catch (err) {
         console.error('Error deleting book:', err);

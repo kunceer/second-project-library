@@ -1,10 +1,10 @@
 
 const mongoose = require("mongoose");
-const User = require("./models/user"); // path to your user model
+const User = require("./models/user"); 
 
 mongoose.connect('mongodb+srv://kunceer:blabubu18!@cluster0.34tuqmz.mongodb.net/library?appName=Cluster0');
 
-// Your array of 10 books (the one you already have)
+
 const books = [
     {
       title: "Romeo and Juliet",
@@ -108,10 +108,10 @@ const books = [
     },
   ];
 
-// Function to seed one user with those books
+
 async function seedExistingUser() {
     try {
-      // 1️⃣ Pronađi korisnika po email-u
+      
       const user = await User.findOne({ email: "llara.kuncer@gmail.com" });
   
       if (!user) {
@@ -120,10 +120,10 @@ async function seedExistingUser() {
         return;
       }
   
-      // 2️⃣ Dodaj knjige u njegovu listu
+      
       user.books.push(...books);
   
-      // 3️⃣ Sačuvaj izmene
+      
       await user.save();
   
       console.log("✅ Knjige uspešno dodate postojećem korisniku!");
